@@ -1,0 +1,65 @@
+GET http://localhost:5000/api/category
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMTM0MzlhMmNmYzZkNDEwNDYxMGRkNSIsImlhdCI6MTYyODY3NDQ2MiwiZXhwIjoxNjI4Njc1NjYyfQ.IMfAB2h1aMCwYMyUfNH6qy8iuoqXMoj6f9kOX7N6CH8
+
+###
+POST http://localhost:5000/api/category/add
+Content-Type: application/json
+
+{
+    "categoryID": "CT001",
+    "categoryName": "Hoa hướng dương"
+}
+###
+PUT http://localhost:5000/api/category/update/60ff804cac6ed00610bf040e
+Content-Type: application/json
+
+{
+    "categoryID": "CT001",
+    "categoryName": "Hoa Hồng"
+}
+###
+DELETE http://localhost:5000/api/category/60ff804cac6ed00610bf040e
+
+###
+POST http://localhost:5000/api/admin/register 
+Content-Type:  application/json
+
+{
+    "loginName": "admin@gmail.com",
+    "password": "1234",
+    "userName": "Admin",
+    "userAvatar": "https://lh3.googleusercontent.com/a/AATXAJyiJGvBLOxZpUARZNQUz_0ODsQkQb1c5iKbjY2b=s96-c"
+}
+
+###
+POST http://localhost:5000/api/admin/login
+Content-Type: application/json
+
+{
+    "loginName": "vv@gmail.com",
+    "password": "1234"
+}
+
+###
+PUT http://localhost:5000/api/admin/refreshToken
+Content-Type: application/json
+
+{
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMTM0Mzk2MmNmYzZkNDEwNDYxMGRkMiIsImlhdCI6MTYyODY1OTgwOCwiZXhwIjoxNjI4NzQ2MjA4fQ.yEKgcjs7FfaV_NEYWOAuUOYStOgE7m7lihTDGuY2YCM"
+}
+
+###
+DELETE http://localhost:5000/api/admin/logout
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMTM0MzlhMmNmYzZkNDEwNDYxMGRkNSIsImlhdCI6MTYyODY3MzE3NiwiZXhwIjoxNjI4NjczMzU2fQ.08m7-XUScXsz-d0fKOmxqR3FXO9LbtochPW1Z_PrJoo
+
+
+###
+POST http://localhost:5000/api/flashsale/create
+Content-Type: application/json
+
+{
+    "countdown": "08/25/2021 03:33 PM"
+}
+
+###
+GET http://localhost:5000/api/review

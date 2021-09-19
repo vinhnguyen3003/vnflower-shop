@@ -1,0 +1,66 @@
+@import './../../../stylesheets/param';
+
+.page404-wrapper{
+    background-color: $dark-white-color;
+    display: flex;
+    //align-items: center;
+    padding-top: 100px;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+.page404{
+    max-width: 520px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    //justify-content: center;
+    align-items: center;
+    .page404-bg{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        div{
+            width: 100%;
+            background: $white-color;
+            border-radius: 90px;
+            height: 125px;
+            &:nth-child(1){
+                box-shadow: 5px 5px 0px 0px #f3f3f3;
+            }
+            &:nth-child(2){
+                -webkit-transform: scale(1.3);
+                -ms-transform: scale(1.3);
+                transform: scale(1.3);
+                -webkit-box-shadow: 5px 5px 0px 0px #f3f3f3;
+                box-shadow: 5px 5px 0px 0px #f3f3f3;
+                position: relative;
+                z-index: 10;
+            }
+            &:nth-child(3){
+                -webkit-box-shadow: 5px 5px 0px 0px #f3f3f3;
+                box-shadow: 5px 5px 0px 0px #f3f3f3;
+                position: relative;
+                z-index: 90;
+            }
+        }
+    }
+    h1{
+        font-family: 'Caligtoga', cursive;
+        font-size: 10rem;
+        color: $green-text-color;
+    }
+    h2{
+        font-size: 3rem;
+        color: $light-text-color;
+        margin-bottom: 50px;
+    }
+    a{
+        padding: 10px 30px;
+    }
+}

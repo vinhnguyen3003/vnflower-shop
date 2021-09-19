@@ -1,0 +1,43 @@
+@import './../../../stylesheets/param';
+
+/*--Mobile and Tablet--*/
+@media (max-width: 1023px){
+	.footer .footer__wrapper .footer-bottom{
+        padding: 20px 20px 60px;
+        span{
+            font-size: 1.3rem;
+        }
+    }
+}   
+
+/*--Tablet--*/
+@media (min-width: 740px) and (max-width: 1023px){
+	
+}
+
+/*--Mobile--*/
+@media (max-width: 739px){
+    .footer .footer__wrapper .footer-body{
+        flex-direction: column;
+        
+    }
+    .footer-body__left{
+        width: 100%;
+    }
+    .footer-body__right{
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    .footer-body__left .body-left-content .content-address, .footer-body__left .body-left-content .content-phone, 
+    .footer-body__left .body-left-content .content-email{
+        font-size: 1.5rem;
+    }
+    .footer-body__right .body-right-col{
+        width: 50%;
+        margin-bottom: 10px;
+    }
+}
+@media (max-width: 500px){
+    
+}

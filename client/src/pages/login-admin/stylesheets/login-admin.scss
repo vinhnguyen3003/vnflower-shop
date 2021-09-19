@@ -1,0 +1,81 @@
+@import './../../../stylesheets/param';
+
+.wrapper{
+
+}
+.login-admin-wrapper{
+    background-color: $dark-white-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+.login-admin-form{
+    background-color: $white-color;
+    border-radius: 5px;
+    padding: 30px 30px 40px;
+    border: 4px solid $green-color;
+    .login-form-logo{
+        margin-bottom: 40px;
+        display: flex;
+        justify-content: center;
+    }
+    form{
+        .login-form-group{
+            margin-bottom: 25px;
+            input{
+                width: 300px;
+                border: 3px solid $green-color;
+                outline: none;
+                padding: 10px 12px;
+                color: $light-text-color;
+                font-size: 1.4rem;
+                border-radius: 5px;
+            }
+            &.--remember{
+                span{
+                    font-size: 1.4rem;
+                    color: $green-color;
+                    cursor: pointer;
+                    &:first-child{
+                        margin-right: 5px;
+                    }
+                    &:hover{
+                        font-weight: 600;
+                    }
+                }
+            }
+            &.--btn-login{
+                text-align: center;
+                button{
+                    width: 100%;
+                    padding: 8px 30px;
+                    background-color: $green-color;
+                    border-radius: 3px;
+                    color: $white-color;
+                    &:hover{
+                        border-radius: 40px;
+                    }
+                }
+            }
+        }
+        .login-form-message{
+            margin-top: -15px;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            color: $red-color;
+        }
+    }
+    .login-admin-forget{
+        font-size: 1.2rem;
+        color: $light-text-color;
+        text-align: center;
+        margin-top: -10px;
+        cursor: pointer;
+        &:hover{
+            color: $green-color;
+        }
+    }
+}

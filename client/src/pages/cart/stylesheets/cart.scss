@@ -1,0 +1,491 @@
+@import './../../../stylesheets/param';
+
+
+@mixin flex($justify: flex-start, $align: flex-start, $wrap: nowrap ) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-wrap: $wrap;
+}
+@mixin background($position: center, $repeat: no-repeat, $size: cover) {
+    background-position: $position;
+    background-repeat: $repeat;
+    background-size: $size;
+}
+
+.section-main-cart{
+    background-color: $dark-white-color;
+    padding: 65px 0 80px;
+    .section-main__wrapper{
+        display: flex;
+        flex-direction: column;
+        .section-main-title{
+            font-family: 'Calistoga', cursive;
+            font-size: 2.2rem;
+            color: $green-text-color;
+            margin-bottom: 40px;
+            margin-left: 120px;
+            span{
+                font-family: 'Fira Sans';
+                font-size: 1.8rem;
+                color: $light-text-color;
+            }
+        }
+        .section-main-content{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}
+.main-cart-left{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    .main-left-item{
+        display: flex;
+        padding: 28px 0 30px;
+        &:not(:last-child){
+            border-bottom: 1px solid $light-green-color;
+        }
+        .main-left-item__img{
+            margin-right: 20px;
+            img{
+                width: 70px;
+                height: 70px;
+                border-radius: 3px;
+            }
+        }
+        .main-left-item__info{
+            flex: 1 1;
+            a{
+                font-size: 1.6rem;
+                color: $green-text-color;
+                font-weight: 600;
+                &:hover{
+                    color: $green-color;
+                }
+            }
+            // .info-spec-list{
+            //     .info-spec-item{
+
+            //     }
+            // }
+        }
+        .main-left-item__quantity{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .quantity-button{
+                position: relative;
+                input{
+                    height: 40px;
+                    width: 160px;
+                    font-size: 1.6rem;
+                    color: $light-text-color;
+                    padding-left: 100px;
+                    padding-right: 10px;
+                    background-color: $white-color;
+                    border: 1px solid $light-green-color;
+                    outline: none;
+                    border-radius: 3px 0 0 3px;
+                    text-align: center;
+                }
+                .quantity-text{
+                    position: absolute;
+                    top: 50%;
+                    left: 15px;
+                    font-size: 1.4rem;
+                    transform: translateY(-50%);
+                    color: $green-text-color;
+                    font-weight: 600;
+                }
+                .quantity-icon{
+                    @include flex(center, center);
+                    position: absolute;
+                    width: 20px;
+                    height: 20px;
+                    font-size: 1.4rem;
+                    color: $green-text-color;
+                    cursor: pointer;
+                    border: 1px solid $light-green-color;
+                    border-left: 0;
+                    background-color: $white-color;
+                    transition: all .3s linear;
+                    user-select: none;
+                    &:hover{
+                        background-color: $green-text-color;
+                        color: $white-color;
+                    }
+                    &.--non-active{
+                        background-color: $white-color;
+                        color: $green-text-color;
+                        cursor: default;
+                    }
+                    &.quantity-icon-up{
+                        top: 0;
+                        left: 100%;
+                        border-bottom: 0;
+                    }
+                    &.quantity-icon-down{
+                        bottom: 0;
+                        left: 100%;
+                        border-top: 0;
+                    }
+                }
+            }
+            .quantity-remove{
+                font-size: 1.3rem;
+                color: $green-text-color;
+                margin-top: 8px;
+                cursor: pointer;
+                &:hover{
+                    color: $red-color;
+                }
+                i{
+                    margin-right: 5px;
+                }
+            }
+        }
+        .main-left-item__price{
+            margin-left: 50px;
+            font-size: 1.6rem;
+            font-family: 'Calistoga', cursive;
+            color: $red-color;
+            flex-basis: 100px;
+        }
+    }
+}
+.main-cart-right{
+    width: 80%;
+    .main-right-result{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 30px;
+        span{
+            font-family: 'Calistoga', cursive;
+            &.result-title{
+                font-size: 2.2rem;
+                color: $green-text-color;
+            }
+            &.result-total{
+                font-size: 2.2rem;
+                color: $red-color;
+                margin-left: 30px;
+            }
+        }
+        p{
+            margin-left: 10px;
+            font-size: 1.5rem;
+            color: $light-text-color;
+        }
+    }
+    .main-right-btn{
+        margin-top: 70px;
+        text-align: center;
+        .right-btn-checkout{
+            width: 200px;
+            padding: 10px 12px;
+            background-color: $green-color;
+            color: $white-color;
+            border-radius: 3px;
+            margin-right: 20px;
+            border-radius: 5px;
+            &:hover{
+                border-radius: 50px;
+            }
+        }
+    }
+}
+
+.section-checkout{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 20;
+    display: none;
+    &.--show{
+        display: block;
+    }
+    .section-checkout__wrapper{
+        width: 100%;
+        height: 100%;
+        padding: 55px 0 50px;
+        overflow-y: scroll;
+        &::before{
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, .6);
+            z-index: 20;
+        }
+        .section-checkout-modal{
+            position: relative;
+            z-index: 24;
+            margin: 0 auto;
+            max-width: 800px;
+            background-color: $white-color;
+            border-radius: 5px;
+        }
+    }
+}
+.checkout-modal-loading{
+    position: absolute;
+    top: 0;
+    left: 0;
+    //background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(0, 0, 0, .1);
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    &.--show{
+        display: flex;
+    }
+}
+.checkout-modal-header{
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $light-green-color;
+    span{
+        &:first-child{
+            font-family: 'Calistoga', cursive;
+            letter-spacing: .5px;
+            font-size: 2rem;
+            font-weight: 600;
+            color: $green-text-color;
+        }
+        &:last-child{
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            font-size: 2rem;
+            color: $green-text-color;
+            cursor: pointer;
+            &:hover{
+                color: $red-color;
+            }
+        }
+    }
+}
+.checkout-modal-body{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $light-green-color;
+    .checkout-modal-item{
+        padding: 12px 20px;
+        .modal-item-title{
+            font-size: 1.6rem;
+            color: $green-text-color;
+            margin-bottom: 20px;
+            // display: flex;
+            // align-items: center;
+            // span{
+            //     display: inline-block;
+            //     width: 20px;
+            //     height: 20px;
+            //     margin-right: 5px;
+            //     @include background();
+            //     background-image: url('./images/sabi-icon.png');
+            // }
+        }
+        .modal-item-content{
+            .sex-customer{
+                margin-bottom: 10px;
+                span{
+                    font-size: 1.4rem;
+                    color: $light-text-color;
+                    margin-right: 10px;
+                    cursor: pointer;
+                    i{
+                        font-size: 1.6rem;
+                        color: $green-text-color;
+                        margin-right: 5px;
+                    }
+                }
+            }
+            .other-info{
+                display: flex;
+                justify-content: space-between;
+                .modal-form-group{
+                    width: calc(50% - 7.5px);
+                    display: flex;
+                    flex-direction: column;
+                    input{
+                        width: 100%;
+                        border: none;
+                        outline: none;
+                        padding: 10px 12px;
+                        border: 1px solid $light-text-color;
+                        border-radius: 3px;
+                        &:first-child{
+                            margin-right: 10px;
+                        }
+                    }
+                    &.invalid{
+                        .form-message{
+                            color: $red-color;
+                            font-size: 1.1rem;
+                            margin-top: 3px;
+                        }
+                    }
+                }
+            }
+            .address-customer{
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                .modal-form-group{
+                    width: calc(50% - 7.5px);
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 20px;
+                    &.invalid{
+                        .form-message{
+                            color: $red-color;
+                            font-size: 1.1rem;
+                            margin-top: 3px;
+                        }
+                    }
+                    input{
+                        border: none;
+                        outline: none;
+                        border: 1px solid $light-text-color;
+                        padding: 10px 12px;
+                        border-radius: 3px;
+                    }
+                }
+            }
+            .other-request{
+                textarea{
+                    font-family: 'Fira Sans', cursive;
+                    max-width: 100%;
+                    min-width: 100%;
+                    max-height: 100px;
+                    min-height: 100px;
+                    border: none;
+                    outline: none;
+                    border: 1px solid $light-text-color;
+                    padding: 10px 12px;
+                    border-radius: 3px;
+                    &::placeholder {
+                        color: $light-text-color;  
+                    }
+                }
+            }
+            .ship-method{
+                span{
+                    font-size: 1.4rem;
+                    color: $light-text-color;
+                    margin-right: 10px;
+                    cursor: pointer;
+                    i{
+                        font-size: 1.6rem;
+                        color: $green-text-color;
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+.checkout-modal-footer{
+    padding: 12px 20px 20px;
+    .modal-footer-total{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        margin-bottom: 30px;
+        span{
+            font-family: 'Calistoga', cursive;
+            &:first-child{
+                font-size: 2.2rem;
+                color: $green-text-color;
+            }
+            &:last-child{
+                font-size: 1.6rem;
+                color: $red-color;
+            }
+        }
+    }
+    .modal-footer-button{
+        text-align: center;
+        .btn-purchase{
+            padding: 10px 30px;
+            text-transform: uppercase;
+            border-radius: 3px;
+            color: $white-color;
+            background-color: $green-color;
+            &:hover{
+                border-radius: 50px;
+            }
+        }
+    }
+    .modal-footer-text{
+        font-size: 1.3rem;
+        color: $light-text-color;
+        text-align: center;
+        margin-top: 12px;
+    }
+}
+.section-main__empty{
+    align-items: center;
+    justify-content: center;
+    .checkout-success-image{
+        img{
+            width: 150px;
+            height: 150px;
+        }
+    }
+    .checkout-success-text{
+        margin-top: 20px;
+        margin-bottom: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        span{
+            font-size: 1.6rem;
+            color: $light-text-color;
+            &:nth-child(2){
+                margin-bottom: 10px;
+                margin-top: 10px;
+            }
+        }
+    }
+    .cart-empty-image{
+        img{
+            width: 150px;
+            height: 150px;
+            margin-right: 25px;
+        }
+    }
+    .cart-empty-text{
+        font-size: 1.7rem;
+        color: $light-text-color;
+        margin-top: 20px;
+        margin-bottom: 35px;
+    }
+    .cart-empty-btn{
+        padding: 6px 16px;
+        font-size: 1.4rem;
+        background-color: $green-color;
+        color: $white-color;
+        border-radius: 3px;
+        &:hover{
+            border-radius: 30px;
+        }
+    }
+}

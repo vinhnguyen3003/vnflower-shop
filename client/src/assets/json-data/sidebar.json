@@ -1,0 +1,32 @@
+[
+    {
+        "display_name": "Trang chủ",
+        "icon": "fas fa-home",
+        "route": "/admin"
+    },
+    {
+        "display_name": "Loại sản phẩm",
+        "icon": "fas fa-boxes",
+        "route": "/admin/category"
+    },
+    {
+        "display_name": "Sản phẩm",
+        "icon": "fas fa-box-open",
+        "route": "/admin/product"
+    },
+    {
+        "display_name": "Khuyến mãi",
+        "icon": "fas fa-tag",
+        "route": "/admin/discount"
+    },
+    {
+        "display_name": "Đơn hàng",
+        "icon": "fas fa-clipboard",
+        "route": "/admin/order"
+    },
+    {
+        "display_name": "Cài đặt",
+        "icon": "fas fa-cog",
+        "route": "/admin/setting"
+    }
+]
