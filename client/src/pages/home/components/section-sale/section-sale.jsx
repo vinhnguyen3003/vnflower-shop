@@ -69,8 +69,9 @@ function SectionSale() {
         getProductsFlashsale(10, 'flashsale=true', 'null', 'null');
     },[])
 
-    useEffect(()=>{
-        if(socket.connected){
+    //console.log(flashsale)
+    useEffect(()=>{//console.log(socket.connected)
+        if(socket.connected !== undefined){
             socket.on('getCountdown', countdown => {
                 getCountDownFlashsaleBySocket(countdown)
             })
@@ -188,9 +189,9 @@ function SectionSale() {
                                                     <div className="content-star">
                                                         {starRating}
                                                     </div>
-                                                    {
+                                                    {/* {
                                                         flashsaleType.flashStatus &&  flashsale.countdown !== 'null'? 
-                                                        <>
+                                                        <> */}
                                                             <span className="line line-top" />
                                                             <div className="content-promotion">
                                                                 <h4 className="promotion-title">
@@ -205,8 +206,8 @@ function SectionSale() {
                                                                 </div>
                                                             </div> 
                                                             <span className="line line-bottom" />
-                                                        </> : null
-                                                    }
+                                                        {/* </> : null
+                                                    } */}
                                                     <div className="content-price">
                                                         <span className="discount-price">
                                                             { pr.productPrice.discountPrice === 0 ? 

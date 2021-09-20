@@ -11,7 +11,7 @@ const ProtectedRoute = ({render: Component, ...rest}) => {
 
     //Refresh token
     useEffect(()=>{
-        if(localStorage[ADMIN_LOCAL_STORAGE_REFRESH_TOKEN_NAME]){console.log("errrr")
+        if(localStorage[ADMIN_LOCAL_STORAGE_REFRESH_TOKEN_NAME]){
             const refreshToken = async () => {
                 const res = await axios.put(`${apiUrl}/admin/refreshToken`, {refreshToken : localStorage[ADMIN_LOCAL_STORAGE_REFRESH_TOKEN_NAME]});
                 if(res.data.success){
@@ -31,7 +31,6 @@ const ProtectedRoute = ({render: Component, ...rest}) => {
     },[])
 
     useEffect(()=>{
-        console.log(socket)
         if(socket && user !== null) {
             socket.emit('joinUser', user)
         }

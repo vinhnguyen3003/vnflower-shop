@@ -31,7 +31,10 @@
         height: unset;
     }
     .section-home .section-home__left .section-home-footer .section-home-btn{
-        padding: 6px 30px;
+        padding: 8px 30px;
+    }
+    .section-footer .section-footer__wrapper .section-footer-adv{
+        margin-top: 15px;
     }
 }   
 
@@ -225,9 +228,7 @@
     .section-footer .section-footer__wrapper .section-footer-adv .adv-wrapper .adv-link{
         font-size: 1.2rem;
     }
-    .section-footer .section-footer__wrapper .section-footer-adv{
-        margin-top: 30px;
-    }
+    
     .section-product-type span.btn-type{
         padding: 6px 0;
         width: 130px;

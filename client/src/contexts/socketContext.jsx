@@ -28,10 +28,9 @@ const SocketContextProvider = ({children}) => {
     useEffect(()=>{
         const socket = io(
             process.env.NODE_ENV !== 'production'
-            ? ''
+            ? 'http://localhost:3000'
             : 'https://vnflower-shop-server.herokuapp.com'
         );
-        //console.log(socket)
         dispatch({
             type: INIT_SOCKET,
             payload: socket

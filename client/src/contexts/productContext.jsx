@@ -104,7 +104,8 @@ const ProductContextProvider = ({children}) => {
     const updateCountdownFlashsale = async (id, updateData, socket) => {
         try {
             const response = await axios.put(`${apiUrl}/flashsale/update/${id}`, updateData);
-            if(response.data.success){console.log(response.data.updatedFlash)
+            if(response.data.success){
+                //console.log(response.data.updatedFlash)
                 socket.emit('setCountdown', response.data.updatedFlash)
                 // dispatch({
                 //     type: UPDATE_COUNTDOWN_FLASHSALE,
