@@ -31,12 +31,13 @@ export const CartReducer = (state , action) => {
             index = findProductInCart(state.cartItems, product);
             
             if(index !== -1){
-                const newCartItem = {...newCart[index]};
-                newCartItem.quantity += quantity;
-                newCart[index] = newCartItem;
+                // const newCartItem = {...newCart[index]};
+                // newCartItem.quantity += quantity;
+                // newCart[index] = newCartItem;
             }else{
                 newCart.push({product, quantity})
             }
+            console.log(newCart)
             return {
                 ...state, 
                 ...sumItems(newCart),
