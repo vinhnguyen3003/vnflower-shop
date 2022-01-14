@@ -35,11 +35,8 @@ function App() {
         <MessageContextProvider>
             <BrowserRouter>
                 <Switch>
-                    <NormalRoute path="/" exact/>
-
                     <Route path="/admin/login" component={LoginAdmin}/>
                     <Route path="/admin/404" component={Page404}/>
-
                     <ProtectedRoute path="/admin" exact render={(props)=>{
                         return <DashboardAdmin {...props}/>
                     }}/>
@@ -58,8 +55,8 @@ function App() {
                     <ProtectedRoute path="/admin/message" exact render={(props)=>{
                         return <MessageAdmin {...props}/>
                     }}/>
-                    
-                    <Route path="*" exact component={Page404} />
+                    {/* Nên ưu tiên cho route admin trước */}
+                    <Route path="/" component={NormalRoute}/>
                 </Switch>
             </BrowserRouter>
         </MessageContextProvider>

@@ -6,9 +6,9 @@ import HeaderMenu from './components/header-menu/header-menu';
 import HeaderCart from './components/header-cart/header-cart';
 import { Link } from 'react-router-dom';
 
-function Header() {
+function Header({firstNotiStatus}) {
     return (
-        <div className="header">
+        <div className={`header ${firstNotiStatus ? '--mt-style' : ''}`}>
             <div className="header__wrapper">
                 <Link to="/" className="header-logo">
                     <img src={LogoImage} alt="" />

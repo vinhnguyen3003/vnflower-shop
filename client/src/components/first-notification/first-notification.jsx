@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-function FirstNotification() {
+function FirstNotification({handleFirstNoti}) {console.log('reload')
     const [firstNotification, setFirstNotification] = useState(false);
 
     useEffect(()=>{
@@ -8,24 +8,28 @@ function FirstNotification() {
         
         if(firstNotiStorage === 'true' || firstNotiStorage === null) {
             setFirstNotification(true);
+            handleFirstNoti(true)
             sessionStorage.setItem('FIRST_NOTI', 'false');
 
             setTimeout(()=>{
                 setFirstNotification(false);
+                handleFirstNoti(false);
             },45000)
         }
         else if(firstNotiStorage === 'false'){
             setFirstNotification(false);
+            handleFirstNoti(false);
         }
     },[])
-    useEffect(()=>{
-        const headerEl = document.getElementsByClassName('header')[0];
-        if(firstNotification){
-            headerEl.style.marginTop = '30px';
-        }else{
-            headerEl.removeAttribute('style');
-        }
-    },[firstNotification])
+    // useEffect(()=>{
+    //     const headerEl = document.getElementsByClassName('header')[0];
+    //     if(!headerEl) return;
+    //     if(firstNotification){
+    //         headerEl.style.marginTop = '30px';
+    //     }else{
+    //         headerEl.removeAttribute('style');
+    //     }
+    // },[firstNotification])
     return (
         <>
             {
