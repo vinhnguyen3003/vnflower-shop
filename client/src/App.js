@@ -1,8 +1,4 @@
 import './stylesheets/base.scss';
-import Home from './pages/home/home';
-import ProductList from './pages/product-list/product-list';
-import ProductDetail from './pages/product-detail/product-detail';
-import Cart from './pages/cart/cart';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import DashboardAdmin from './components/dashboard-admin/dashboard-admin';
 import ProductAdmin from './pages/product-admin/product-admin';
@@ -23,6 +19,7 @@ import OrderContextProvider from './contexts/orderContext';
 import SocketContextProvider from './contexts/socketContext';
 import NotiContextProvider from './contexts/notificationContext';
 import MessageContextProvider from './contexts/messageContext';
+import NormalRoute from './components/routing/normalRoute';
 
 function App() {
     return (
@@ -38,10 +35,7 @@ function App() {
         <MessageContextProvider>
             <BrowserRouter>
                 <Switch>
-                    <Route path="/" exact component={Home}/>
-                    <Route path="/product-list" component={ProductList}/>
-                    <Route path="/product-detail/:id" component={ProductDetail}/>
-                    <Route path="/cart" component={Cart}/>
+                    <NormalRoute path="/" exact/>
 
                     <Route path="/admin/login" component={LoginAdmin}/>
                     <Route path="/admin/404" component={Page404}/>
@@ -64,7 +58,6 @@ function App() {
                     <ProtectedRoute path="/admin/message" exact render={(props)=>{
                         return <MessageAdmin {...props}/>
                     }}/>
-                    {/* <Route path="/admin/product" component={ProductAdmin}/> */}
                     
                     <Route path="*" exact component={Page404} />
                 </Switch>

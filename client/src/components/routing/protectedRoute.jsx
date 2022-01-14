@@ -19,7 +19,6 @@ const ProtectedRoute = ({render: Component, ...rest}) => {
                     localStorage.setItem(ADMIN_LOCAL_STORAGE_REFRESH_TOKEN_NAME, res.data.tokens.refreshToken);
                     localStorage.setItem(ADMIN_LOCAL_STORAGE_ACCESS_TOKEN_NAME, res.data.tokens.accessToken);
                     await loadUser('admin'); 
-                    //console.log(res.data.tokens.accessToken)
                     
                     setTimeout(()=>{
                         refreshToken();

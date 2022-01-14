@@ -31,22 +31,14 @@ export const CartReducer = (state , action) => {
             index = findProductInCart(state.cartItems, product);
             
             if(index !== -1){
-                // const newCartItem = {...newCart[index]};
-                // newCartItem.quantity += quantity;
-                // newCart[index] = newCartItem;
-                console.log('new cart index quantity 1:', newCart[index].quantity)
-                console.log('new cart 1:', newCart)
-                newCart[index].quantity = newCart[index].quantity + quantity;
-                console.log('new cart 2:', newCart)
-                console.log('new cart index quantity 2:', newCart[index].quantity)
+                const newCartItem = {...newCart[index]};
+                newCartItem.quantity += quantity;
+                newCart[index] = newCartItem;
             }else{
                 newCart.push({product, quantity})
             }
-            index !== -1 && console.log('new cart index quantity 3:', newCart[index].quantity)
-            console.log('new cart 3',newCart)
             return {
                 ...state, 
-                //...sumItems(newCart),
                 cartItems: newCart
             }
         case DELETE_IN_CART:
@@ -83,38 +75,6 @@ export const CartReducer = (state , action) => {
     }
 }
 
-
-
-
-
-// export const CartReducer = (state , action) => {
-//     const {type, payload} = action;
-//     const {product, quantity} = payload;
-//     let index = -1;console.log(state)
-//     let storageCart = [...state];console.log(storageCart)
-//     console.log(state)
-//     switch (type) {
-//         case ADD_TO_CART:
-//             index = findProductInCart(state, product);
-//             if(index !== -1){
-//                 console.log(storageCart[index].quantity)
-//                 console.log(quantity)
-//                 storageCart[index].quantity += quantity;
-//                 // console.log(storageCart[index].quantity)
-//                 //console.log(state)
-//                 // console.log([...storageCart,storageCart[index].quantity  ])
-//             }else{
-//                 state.push({product, quantity});console.log(storageCart)
-//                 // state = storageCart
-//                 console.log(storageCart)
-//                 return [...storageCart, {product, quantity}]
-//             }
-//             //sessionStorage.setItem('CART', JSON.stringify(storageCart));
-//             return [...storageCart]
-//         default:
-//             return state;
-//     }
-// }
 
 var findProductInCart = (cart, product) => {
     let index = -1;
