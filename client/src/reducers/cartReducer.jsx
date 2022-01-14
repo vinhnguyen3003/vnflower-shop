@@ -34,13 +34,19 @@ export const CartReducer = (state , action) => {
                 // const newCartItem = {...newCart[index]};
                 // newCartItem.quantity += quantity;
                 // newCart[index] = newCartItem;
+                console.log('new cart index quantity 1:', newCart[index].quantity)
+                console.log('new cart 1:', newCart)
+                newCart[index].quantity = newCart[index].quantity + quantity;
+                console.log('new cart 2:', newCart)
+                console.log('new cart index quantity 2:', newCart[index].quantity)
             }else{
                 newCart.push({product, quantity})
             }
-            console.log(newCart)
+            index !== -1 && console.log('new cart index quantity 3:', newCart[index].quantity)
+            console.log('new cart 3',newCart)
             return {
                 ...state, 
-                ...sumItems(newCart),
+                //...sumItems(newCart),
                 cartItems: newCart
             }
         case DELETE_IN_CART:
